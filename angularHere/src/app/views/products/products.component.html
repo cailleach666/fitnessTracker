@@ -1,0 +1,10 @@
+<div class="products-view">
+  <app-search (search)="handleSearch($event)"></app-search>
+  <br>
+  <div class="products-container">
+    <app-product
+      *ngFor="let product of filteredProducts; let i = index"
+      [product]="product"
+    ></app-product>
+  </div>
+</div>

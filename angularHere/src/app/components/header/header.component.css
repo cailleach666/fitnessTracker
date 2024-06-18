@@ -1,0 +1,45 @@
+header,
+.buttonh,
+.logo {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+header {
+  background-color: antiquewhite;
+  border-bottom: 2px solid ;
+  height: 60px;
+  position: sticky;
+  top: 0px;
+  user-select: none;
+  z-index: 10;
+}
+
+.logo-container {
+  display: flex; /* Ensure logo container behaves as flex */
+  align-items: center; /* Center logo vertically */
+}
+
+.logo {
+  width: auto; /* Let the width adjust based on image size */
+  height: 100%; /* Ensure logo takes full height of header */
+  max-height: 100%; /* Ensure logo doesn't overflow header height */
+  max-width: 100%; /* Ensure logo doesn't overflow header width */
+}
+
+.buttonh {
+  gap: 16px;
+  text-decoration: none;
+}
+
+.logo {
+  width: 162px;
+  height: 70px;
+}
+
+
+
