@@ -1,0 +1,30 @@
+.cart-table {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+.cart-total {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.fixed-width {
+  width: 130px; /* Set your desired fixed width */
+  text-align: left; /* Optional: center-align the content */
+}

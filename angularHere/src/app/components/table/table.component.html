@@ -1,0 +1,37 @@
+<div class="cart-table">
+  <h2>Our table</h2>
+  <table>
+    <thead>
+    <tr>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Total</th>
+      <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of cartItems">
+      <td><img [src]="item.img" alt="{{ item.name }}" /></td>
+      <td>{{ item.name }}</td>
+      <td>{{ item.description }}</td>
+      <td>{{ item.price | number:'1.2-2' }}</td>
+      <td class="fixed-width">
+        <button (click)="decreaseQuantity(item)">-</button>
+        {{ item.quantity }}
+        <button (click)="increaseQuantity(item)">+</button>
+      </td>
+      <td class="fixed-width">{{ item.price * item.quantity | number:'1.2-2' }}</td>
+      <td>
+        <button (click)="removeFromCart(item)">Remove</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="cart-total">
+    <strong>Total: {{ getTotal() | number:'1.2-2'}}</strong>
+  </div>
+  <button (click)="clearCart()">Clear table</button>
+</div>

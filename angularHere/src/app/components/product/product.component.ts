@@ -1,4 +1,4 @@
-import {Component, Input, Output, EventEmitter } from '@angular/core';
+import {Component, Input } from '@angular/core';
 
 interface Product {
   img: string;
@@ -17,8 +17,9 @@ interface Product {
 })
 export class ProductComponent {
   @Input() product!: Product;
-  @Output() addProduct = new EventEmitter<Product>();
   quantity: number = 0;
+
+  constructor() { }
 
   decrement() {
     if (this.quantity > 0) {
@@ -30,13 +31,17 @@ export class ProductComponent {
     this.quantity++;
   }
 
-  constructor() { }
-
   onAdd() {
-    if (this.quantity > 0) {
-      const productToAdd: Product = { ...this.product, quantity: this.quantity };
-      this.addProduct.emit(productToAdd);
-      this.quantity = 0;
+    const cartItems = localStorage.getItem('cartItems');
+    let cart = cartItems ? JSON.parse(cartItems) : [];
+    const existingItem = cart.find((item: Product) => item.name === this.product.name);
+    if (existingItem) {
+      existingItem.quantity += this.quantity;
+    } else {
+      cart.push({ ...this.product, quantity: this.quantity });
     }
+    localStorage.setItem('cartItems', JSON.stringify(cart));
+    this.quantity = 0; // reset the quantity after adding to cart
   }
+
 }
