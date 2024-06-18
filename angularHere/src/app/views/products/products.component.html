@@ -1,6 +1,17 @@
 <div class="products-view">
   <app-search (search)="handleSearch($event)"></app-search>
   <br>
+  <button (click)="showNewProductForm()" class="buttonlol">Add New Product</button>
+  <br>
+  <div *ngIf="isNewProductFormVisible" class="new-product-form">
+    <input type="text" [(ngModel)]="newProduct.name" placeholder="Name" />
+    <input type="text" [(ngModel)]="newProduct.description" placeholder="Description" />
+    <input type="number" [(ngModel)]="newProduct.price" placeholder="Price" />
+    <input type="text" [(ngModel)]="newProduct.img" placeholder="Image URL" />
+    <button (click)="addNewProduct()">Save</button>
+    <button (click)="cancelNewProduct()">Cancel</button>
+  </div>
+  <br>
   <div class="products-container">
     <app-product
       *ngFor="let product of filteredProducts; let i = index"

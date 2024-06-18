@@ -5,3 +5,17 @@
   justify-content: start;
   margin-left: 25px;
 }
+
+.buttonlol {
+  border-radius: 8px;
+  margin-left: 25px;
+  margin-bottom: 10px;
+}
+
+.buttonlol:hover {
+  background-color: #757575;
+}
+
+.new-product-form {
+  margin-left: 25px;
+}

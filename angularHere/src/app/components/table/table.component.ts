@@ -19,6 +19,7 @@ interface Product {
 })
 export class TableComponent implements OnInit {
   cartItems: Product[] = [];
+  filteredCartItems: Product[] = [];
 
   constructor() {}
 
@@ -31,6 +32,7 @@ export class TableComponent implements OnInit {
       const storedCartItems = localStorage.getItem('cartItems');
       if (storedCartItems) {
         this.cartItems = JSON.parse(storedCartItems);
+        this.filteredCartItems = [...this.cartItems];
       }
     } else {
       console.error('localStorage is not available');
@@ -40,15 +42,17 @@ export class TableComponent implements OnInit {
   removeFromCart(product: Product) {
     this.cartItems = this.cartItems.filter(item => item.name !== product.name);
     this.updateCartStorage();
+    this.filterCartItems({ target: { value: '' } });
   }
 
   getTotal() {
-    return this.cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    return this.filteredCartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
   }
 
   updateCartStorage() {
     if (typeof localStorage !== 'undefined') {
       localStorage.setItem('cartItems', JSON.stringify(this.cartItems));
+      this.filteredCartItems = [...this.cartItems];
     } else {
       console.error('localStorage is not available');
     }
@@ -58,6 +62,7 @@ export class TableComponent implements OnInit {
     if (typeof localStorage !== 'undefined') {
       localStorage.removeItem('cartItems');
       this.cartItems = [];
+      this.filteredCartItems = [];
     } else {
       console.error('localStorage is not available');
     }
@@ -68,6 +73,7 @@ export class TableComponent implements OnInit {
     if (cartItem) {
       cartItem.quantity++;
       this.updateCartStorage();
+      this.filterCartItems({ target: { value: '' } });
     }
   }
 
@@ -79,7 +85,15 @@ export class TableComponent implements OnInit {
         this.removeFromCart(cartItem);
       } else {
         this.updateCartStorage();
+        this.filterCartItems({ target: { value: '' } });
       }
     }
+  }
+
+  filterCartItems(event: any) {
+    const searchTerm = event.target.value.toLowerCase();
+    this.filteredCartItems = this.cartItems.filter(item =>
+      item.name.toLowerCase().includes(searchTerm)
+    );
   }
 }
