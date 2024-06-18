@@ -20,8 +20,4 @@ export class HeaderComponent {
       }
     });
   }
-
-  toggleSidebar() {
-    this.sidebarState = !this.sidebarState;
-  }
 }

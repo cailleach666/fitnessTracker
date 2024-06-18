@@ -1,7 +1,7 @@
 .products-container {
-  display: grid; /* Use CSS Grid */
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));  /* Wrap items onto multiple lines */
-  gap: 30px; /* Space between items */
-  justify-content: start; /* Center items horizontally */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  justify-content: start;
   margin-left: 25px;
 }

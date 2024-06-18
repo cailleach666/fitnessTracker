@@ -41,7 +41,7 @@ export class ProductComponent {
       cart.push({ ...this.product, quantity: this.quantity });
     }
     localStorage.setItem('cartItems', JSON.stringify(cart));
-    this.quantity = 0; // reset the quantity after adding to cart
+    this.quantity = 0;
   }
 
 }

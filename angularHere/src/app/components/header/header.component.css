@@ -20,15 +20,15 @@ header {
 }
 
 .logo-container {
-  display: flex; /* Ensure logo container behaves as flex */
-  align-items: center; /* Center logo vertically */
+  display: flex;
+  align-items: center;
 }
 
 .logo {
-  width: auto; /* Let the width adjust based on image size */
-  height: 100%; /* Ensure logo takes full height of header */
-  max-height: 100%; /* Ensure logo doesn't overflow header height */
-  max-width: 100%; /* Ensure logo doesn't overflow header width */
+  width: auto;
+  height: 100%;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .buttonh {

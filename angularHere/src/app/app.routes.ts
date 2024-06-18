@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { ProductComponent } from './components/product/product.component';
 import { ProductsComponent } from './views/products/products.component';
 import { HomepageComponent } from './views/homepage/homepage.component';
 import { TableComponent } from './components/table/table.component';

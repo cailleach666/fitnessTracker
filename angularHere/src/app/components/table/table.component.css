@@ -25,6 +25,11 @@ th {
 }
 
 .fixed-width {
-  width: 130px; /* Set your desired fixed width */
-  text-align: left; /* Optional: center-align the content */
+  width: 130px;
+  text-align: left;
+}
+
+.fixed-width2 {
+  width: 100px;
+  text-align: left;
 }
